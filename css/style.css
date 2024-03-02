@@ -1,54 +1,105 @@
-body{
-    margin: 0;
+:root{
+    --yellow: #FFC54D;
+    --red: crimson;
+    --green:#53BF9D;
+    --white:whitesmoke;
+}
+
+body,h2{
+
+    margin:0;
     font-family: Arial, Helvetica, sans-serif;
 }
+/* the above is to remove the default margin and set the font family to Arial 
+ */
+
 
 .landing{
     background-image: url("../DrAxeSpicyFoodFB.jpg");
     background-size: cover;
+    /* cover is used to make the image cover the entire container
+     */
     background-position: center;
+    /* center is used to position the image in the center of the container
+     */
     height: 100vh;
+    /*  100vh is used to make the container take the entire height of the viewport
+    it is a unit of measurement that is equal to 1% of the viewport height
+    you cannot go beyond 100vh
+     */
+    color:var(--white);
+
 }
 
-
 header a{
-    text-decoration: none;
+    text-decoration:none;
     color: var(--yellow);
+    min-width:120px;
 }
 
 header{
-    display: flex;
+    display:flex;
     padding: 1em;
+    flex-wrap:wrap;
+    /* flex wrap is used for  
+     */
+     row-gap:1em;
 }
 
 #logo{
-    flex: 3;
-    font-size: 1.25em;
+    flex:3;
+    /*  flex is used to set the width of the element
+    it is used to make the element take up the remaining space
+    flex:3 means that the element will take up 3 times the space of the other elements
+    to know more about flex, visit https://www.w3schools.com/css/css3_flexbox.asp
+     */
+     font-size: 1.25em;
+     min-width:260px;
 }
 
 nav{
-    flex: 2;
-    display: flex;
+    flex:2;
+    display:flex;
+    align-items: center;
+
 }
+/*  so the above flex has split the content, 3 parts to logo and 2 parts to  nav out of 5 */
 
 nav a{
-    flex: 1;
+    flex:1;
+    /*  this means that the links will take up the same amount of space
+     */
 }
 
 nav a:hover{
-    color: var(green);
+    color: var(--green);
 }
+
+header h2 i,nav a i{
+    margin-right: .5em;
+}
+
 
 .maintext{
-    display: flex;
-    flex-direction: column; 
-    height: 40vh;
-    justify-content: center;
-    padding: 2em;
+    display:flex;
+    flex-direction: column;
+    /*  flex-direction is used to set the direction of the flex container
+    by default, the direction is row, that is why the logo and nav are in a row, when we gave display:flex to the header
+     */
+    height: 50vh;
+    /*  this means that the height of the container will be 40% of the viewport height
+     */
+
+     justify-content: center;
+        /*  justify-content is used to align the content of the container along the main axis (horizontally) 
+        center is used to align the content in the center of the container
+         */
+
+    padding:2em;
 }
 
-.tagline{
-    color: var(red);
+.tagline1{
+    color:var(--red);
     font-size: 2.5em;
     font-weight: bolder;
 }
@@ -57,54 +108,60 @@ nav a:hover{
     color: var(--yellow);
 }
 
+
 .maintext div{
-    margin-top: .75em ;
+    margin-top:.75em
 }
 
 .maintext button{
-    width: 20vw;
-    margin-top: 2em;
+    width:20vw;
+    margin-top:2em;
     border-radius: 10px;
-    padding: 7em;
-    background-color: var(green);
-    color: var(white);
-    border: 1px solid var(green);
+    padding:.7em;
+    background-color: var(--green);
+    color:var(--white);
+    border:1px solid var(--green);
 }
 
 .menu{
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: lightpink;
-    color: var(white);
+    display:grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    /* this  means that the container will be divided into 3 columns of equal width 
+     */
+    background:linear-gradient(to right,rgb(100,100,100),rgb(53,52,52));
+    color:var(--white);
 }
 
 #menuheading,#locheading{
-    background:lightblue ;
+    background:linear-gradient(to right,rgb(100,100,100),rgb(53,52,52));
     font-size: 2.5em;
-    color: var(red);
-    display: flex;
+    color:var(--red);
+    display:flex;
     justify-content: center;
 }
 
+
 .menu th{
-    color: var(green);
+    color:var(--green);
     font-size: 1.8em;
 }
 
 table{
-    width: 100%;
-    padding: 1em;
+    width:100%;
+    padding:1em;
 }
 
 .menu tr{
-    display: flex;
+    display:flex;
     justify-content: center;
     margin-top: .8em;
 }
-
 .menu td:nth-child(1){
-    flex: 1;
-justify-self:left;
+    flex:1;
+    /* felx:1 means that the element will take up the entire space of the container
+     */
+    justify-self: left;
 }
 
 .menu td:nth-child(2){
@@ -112,19 +169,87 @@ justify-self:left;
 }
 
 .maincourse{
-    grid-row: span 2;
+    grid-row:span 2;
+    /* https://youtu.be/6sC4F2FfUHU?t=1930
+    this will make the maincourse table span to two rows
+     */
 }
 
 .locations{
-    background:linear-gradient(to rig) ;
-    color: var(white);
+    background:linear-gradient(to right,rgb(100,100,100),rgb(53,52,52));
+    color: var(--white);   
+    display: flex;
+    flex-wrap:wrap;
+    /* flex-wrap is used for
+     */
+
 }
 
 .locations h2{
-    color: var(-green);
-    margin-bottom:8em ;
+    color:var(--green);
+    margin-bottom: .8em;
 }
 
+.locations div{
+    flex:1;
+    padding:1em;
+    min-width: 220px;
 
+}
 
+footer{
+    background-color: rgb(55, 55, 55);
+    color:var(--white);
+    padding:.25em 1em;
+}
 
+#copyright{
+    margin-left:20px;
+}
+.social-menu ul{
+    display: flex;
+    padding:0;
+}
+
+.social-menu ul li{
+    list-style: none;
+    display:inline-block;
+    margin: 0 15px;
+}
+
+.social-menu ul li .fab{
+    font-size: 25px;
+    line-height: 40px;
+    transition: .3s;
+    color: #000;
+}
+
+.social-menu ul li .fab:hover{
+    color: #fff;
+}
+
+.social-menu ul li a{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+    transition: .6s;
+    box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+    
+.social-menu ul li a:hover{
+    transform: translate(0, -10%);
+}
+
+.social-menu ul li:nth-child(1) a:hover{
+    background-color: #4267B2;
+}
+.social-menu ul li:nth-child(2) a:hover{
+    background-color: #E4405F;
+}
+.social-menu ul li:nth-child(3) a:hover{
+    background-color: #00ACEE;
+}
